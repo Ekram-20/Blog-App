@@ -1,4 +1,4 @@
-# onPost App
+# Blog App: onPost
 
 It is a mobile application designed to empower users to create, share, and discover blog posts on various topics.
 
