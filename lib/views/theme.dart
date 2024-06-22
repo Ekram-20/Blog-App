@@ -1,36 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
+  static const kPrimaryColor = Color.fromRGBO(26, 26, 26, 1);
+
   static ThemeData customTheme = ThemeData(
     useMaterial3: true,
-    primaryColor: const Color.fromRGBO(21, 52, 72, 1),
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: const Color.fromRGBO(19, 47, 64, 1),
+    colorScheme: const ColorScheme(
+      primary: Colors.black,
+      secondary: Colors.white,
+      surface: Colors.white,
+      error: Colors.red,
+      onPrimary: Colors.white,
+      onSecondary: Colors.black,
+      onSurface: Colors.black,
+      onError: Colors.white,
+      brightness: Brightness.light, 
     ),
     // appBarTheme: AppBarTheme(
     //   backgroundColor: Colors.grey[100],
     // ),
-    // textTheme: GoogleFonts.montserratTextTheme(),
+    textTheme: GoogleFonts.rubikTextTheme(),
     inputDecorationTheme: const InputDecorationTheme(
       labelStyle: TextStyle(
-        color: Color.fromRGBO(19, 47, 64, 0.7),
+        color: kPrimaryColor,
         fontSize: 16.0,
       ),
       border: OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10.0)),
         borderSide: BorderSide(
-          color: Color.fromRGBO(19, 47, 64, 0.7),
+          color: Color.fromARGB(200, 225, 225, 225),
         ),
-        // borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color.fromRGBO(19, 47, 64, 1),
+        backgroundColor: kPrimaryColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
       ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Color.fromRGBO(19, 47, 64, 1),
+      backgroundColor: kPrimaryColor,
       selectedItemColor: Colors.white,
       unselectedItemColor: Colors.white54,
       type: BottomNavigationBarType.fixed,

@@ -5,7 +5,7 @@ It is a mobile application designed to empower users to create, share, and disco
 
 ## Mean Features
 - User Authentication
-- Create and Publish Blog
+- Create and Publish Blog
 - Browse and Discover
 - Search Functionality
 - Offline Access
