@@ -1,3 +1,4 @@
+import 'package:blog_app/views/auth/sign_up_page.dart';
 import 'package:blog_app/views/blogs.dart';
 import 'package:blog_app/widgets/button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -51,6 +52,11 @@ class _SignInPageState extends State<SignInPage> {
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
       }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.toString()),
+        ),
+      );
     } finally {
       setState(() => isLogin = false);
     }
@@ -78,6 +84,7 @@ class _SignInPageState extends State<SignInPage> {
 
                 // fields
                 TextFormField(
+                  controller: emailController,
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.email_outlined),
                     label: Text('Email'),
@@ -85,6 +92,7 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  controller: passwordController,
                   obscureText: showPassword,
                   decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.lock),
@@ -101,7 +109,25 @@ class _SignInPageState extends State<SignInPage> {
                   onPressed: loginUser,
                   text: 'Sign in',
                   isLoading: isLogin,
-                )
+                ),
+
+                // go to sign up page
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignUpPage(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Don't have an account, Sign up here",
+                    style: TextStyle(
+                      color: Color.fromRGBO(19, 47, 64, 1),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
